@@ -1,5 +1,9 @@
 FROM base/archlinux
-MAINTAINER Eric Lee <lichang.eric@gmail.com>
+
+LABEL maintainer="Eric Lee <lichang.eric@gmail.com>"
+
+ENV LANG en_US.UTF-8
+
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S vim iproute2 git nodejs npm \
     && rm -f \

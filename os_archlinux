@@ -1,6 +1,7 @@
 FROM base/archlinux
 MAINTAINER Eric Lee <lichang.eric@gmail.com>
-RUN    pacman --noconfirm -S vim iproute2 git nodejs \
+RUN    pacman --noconfirm -Syu \
+    && pacman --noconfirm -S vim iproute2 git nodejs \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \

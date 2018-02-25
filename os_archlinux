@@ -18,3 +18,5 @@ RUN    git clone https://kitrap@github.com/kitrap/kitrap.git
 RUN    cd kitrap
 RUN    npm install hexo --save
 RUN    npm install hexo-deployer-git --save
+
+CMD ["/bin/bash"]

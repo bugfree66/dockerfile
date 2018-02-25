@@ -1,0 +1,15 @@
+FROM base/archlinux
+MAINTAINER Eric Lee <lichang.eric@gmail.com>
+RUN    pacman --noconfirm -S vim iproute2 git nodejs \
+    && rm -f \
+      /var/cache/pacman/pkg/* \
+      /var/lib/pacman/sync/* \
+      /etc/pacman.d/mirrorlist.pacnew
+RUN    npm config set registry https://registry.npm.taobao.org
+RUN    npm install hexo-cli -g
+RUN    mkdir /root/kitrap
+RUN    cd /root/kitrap
+RUN    git clone https://kitrap@github.com/kitrap/kitrap.git
+RUN    cd kitrap
+RUN    npm install hexo --save
+RUN    npm install hexo-deployer-git --save

@@ -12,8 +12,7 @@ RUN    pacman --noconfirm -Syu \
       /etc/pacman.d/mirrorlist.pacnew
 RUN    npm config set registry https://registry.npm.taobao.org
 RUN    npm install hexo-cli -g
-RUN    mkdir /root/kitrap
-RUN    cd /root/kitrap
+RUN    cd /root
 RUN    git clone https://github.com/kitrap/kitrap.git
 RUN    cd kitrap
 RUN    npm install hexo --save

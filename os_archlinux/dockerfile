@@ -12,7 +12,8 @@ VOLUME /data
 
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make \
-    && pacman --noconfirm -S vim iproute2 git nodejs npm \
+    && pacman --noconfirm -S vim ctags cscope \
+    && pacman --noconfirm -S iproute2 git nodejs npm \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \

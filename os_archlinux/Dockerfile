@@ -33,7 +33,8 @@ RUN    cd /root \
     && git clone https://github.com/kitrap/kitrap.git \
     && cd kitrap \
     && npm install hexo --save \
-    && npm install hexo-deployer-git --save
+    && npm install hexo-deployer-git --save \
+    && npm cache clean --force
     
 # bind9
 RUN    cd /root \

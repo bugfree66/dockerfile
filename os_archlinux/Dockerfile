@@ -12,8 +12,10 @@ ENV LANG en_US.UTF-8
 VOLUME /data
 
 RUN    pacman --noconfirm -Syu \
-    && pacman --noconfirm -S gcc make glibc \
+    && pacman --noconfirm -S gcc make glibc gdb man-pages \
     && pacman --noconfirm -S vim ctags cscope \
+    && pacman --noconfirm -S llvm lld clang \
+    && pacman --noconfirm -S go boost python \
     && pacman --noconfirm -S iproute2 git nodejs npm \
     && rm -f \
       /var/cache/pacman/pkg/* \

@@ -23,7 +23,8 @@ RUN    pacman --noconfirm -Syu \
       /etc/pacman.d/mirrorlist.pacnew
 
 RUN    git config --global user.email "lichang.eric@gmail.com" \
-    && git config --global user.name "Eric Lee"
+    && git config --global user.name "Eric Lee" \
+    && git config --global http.postBuffer 5242880000
       
 RUN    npm config set registry https://registry.npm.taobao.org
 

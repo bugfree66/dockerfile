@@ -24,7 +24,7 @@ RUN    pacman --noconfirm -Syu \
 
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \
-    && git config --global http.postBuffer 5242880000
+    && git config --global http.postBuffer 524288000
       
 RUN    npm config set registry https://registry.npm.taobao.org
 

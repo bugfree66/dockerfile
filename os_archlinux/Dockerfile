@@ -17,6 +17,8 @@ RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S llvm lld clang \
     && pacman --noconfirm -S go boost python \
     && pacman --noconfirm -S iproute2 git nodejs npm \
+    && pacman --noconfirm -S scp \
+    && pacman --noconfirm -S python-pip \
     && rm -f \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
@@ -27,6 +29,12 @@ RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global http.postBuffer 524288000
       
 RUN    npm config set registry https://registry.npm.taobao.org
+
+# config pip 
+RUN    mkdir /root/.pip
+RUN    echo "[global]" >> /root/.pip/pip.conf \
+    && echo "trusted-host = mirrors.aliyun.com" >> /root/.pip/pip.conf \
+    && echo "index-url = http://mirrors.aliyun.com/pypi/simple" >> /root/.pip/pip.conf
 
 # hexo & blog
 RUN    npm install hexo-cli -g

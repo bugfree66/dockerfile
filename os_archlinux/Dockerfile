@@ -54,6 +54,7 @@ RUN    cd /root \
     && cd .. \
     && rm -rf bind9
     
-RUN    vim +PluginInstall +qall
+RUN    vim +PluginInstall +qall \
+    && mkdir -p /root/.vim/snippets
 
 CMD ["/bin/bash"]

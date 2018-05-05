@@ -53,5 +53,7 @@ RUN    cd /root \
     && make && make install \
     && cd .. \
     && rm -rf bind9
+    
+RUN    vim +PluginInstall +qall
 
 CMD ["/bin/bash"]

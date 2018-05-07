@@ -53,7 +53,13 @@ RUN    cd /root \
     && make && make install \
     && cd .. \
     && rm -rf bind9
-    
+
+# config vim
+RUN    cd /root \
+    && git clone https://github.com/lc7cl/MyVIM.git \
+    && cp MyVIM/.vimrc /root/ \
+    && mkdir -p /root/.vim/bundle \
+    && git clone https://github.com/gmarik/Vundle.vim.git  /root/.vim/bundle/Vundle.vim
 RUN    echo | echo | vim +PluginInstall +qall &>/dev/null \
     && mkdir -p /root/.vim/snippets
 

@@ -62,5 +62,10 @@ RUN    cd /root \
     && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle
 RUN    echo | echo | vim +PluginInstall +qall &>/dev/null \
     && mkdir -p /root/.vim/snippets
+RUN    cd /root/.vim/bundle/YouCompleteMe \
+    && ./install.py --clang-completer \
+    && ./install.py --go-completer \
+    && ./install.py --java-completer \
+    && ./install.py --js-completer 
 
 CMD ["/bin/bash"]

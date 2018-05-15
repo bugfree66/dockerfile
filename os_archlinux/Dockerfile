@@ -63,6 +63,7 @@ RUN    cd /root \
 RUN    echo | echo | vim +PluginInstall +qall &>/dev/null \
     && mkdir -p /root/.vim/snippets
 RUN    cd /root/.vim/bundle/YouCompleteMe \
+    && git submodule update --init --recursive \
     && ./install.py --clang-completer \
     && ./install.py --go-completer \
     && ./install.py --java-completer \

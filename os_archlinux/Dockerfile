@@ -23,6 +23,9 @@ RUN    pacman --noconfirm -Syu \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
       /etc/pacman.d/mirrorlist.pacnew
+      
+RUN    pacman --noconfirm -S cmake \
+    && pacman --noconfirm -S llvm 
 
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \

@@ -14,7 +14,7 @@ VOLUME /data
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make glibc gdb man-pages \
     && pacman --noconfirm -S vim ctags cscope \
-    && pacman --noconfirm -S llvm lld clang \
+    && pacman --noconfirm -S llvm lld clang cmake \
     && pacman --noconfirm -S go boost python \
     && pacman --noconfirm -S iproute2 git nodejs npm \
     && pacman --noconfirm -S scp \
@@ -23,9 +23,6 @@ RUN    pacman --noconfirm -Syu \
       /var/cache/pacman/pkg/* \
       /var/lib/pacman/sync/* \
       /etc/pacman.d/mirrorlist.pacnew
-      
-RUN    pacman --noconfirm -S cmake \
-    && pacman --noconfirm -S llvm 
 
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \

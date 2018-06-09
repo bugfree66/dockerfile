@@ -10,7 +10,7 @@ RUN    cd /root \
     && git clone https://gitlab.isc.org/isc-projects/bind9.git \
     && cd bind9 \
     && ./configure --prefix=/root/bind9/output \
-    && make && make install \    
+    && make && make install   
     
 # phrase build image
 FROM base/archlinux

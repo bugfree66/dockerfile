@@ -1,4 +1,18 @@
-
+# phrase build dig
+FROM base/archlinux
+RUN    pacman --noconfirm -Syu \
+    && pacman --noconfirm -S gcc make glibc gdb man-pages \
+    && pacman --noconfirm -S git
+RUN    git config --global user.email "lichang.eric@gmail.com" \
+    && git config --global user.name "Eric Lee" \
+    && git config --global http.postBuffer 524288000    
+RUN    cd /root \
+    && git clone https://gitlab.isc.org/isc-projects/bind9.git \
+    && cd bind9 \
+    && ./configure --prefix=/root/bind9/output \
+    && make && make install \    
+    
+# phrase build image
 FROM base/archlinux
 
 LABEL maintainer="Eric Lee <lichang.eric@gmail.com>"
@@ -46,13 +60,15 @@ RUN    cd /root \
     && npm cache clean --force
     
 # bind9
-RUN    cd /root \
-    && git clone https://gitlab.isc.org/isc-projects/bind9.git \
-    && cd bind9 \
-    && ./configure \
-    && make && make install \
-    && cd .. \
-    && rm -rf bind9
+#RUN    cd /root \
+#    && git clone https://gitlab.isc.org/isc-projects/bind9.git \
+#    && cd bind9 \
+#    && ./configure \
+#    && make && make install \
+#    && cd .. \
+#    && rm -rf bind9
+COPY --from=0 /root/bind9/output/bin/dig /usr/local/bin/
+COPY --from=0 /root/bind9/output/bin/nslookup /usr/local/bin/
 
 # config vim
 RUN    cd /root \

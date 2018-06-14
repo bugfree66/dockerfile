@@ -76,7 +76,7 @@ RUN    cd /root \
     && cp MyVIM/.vimrc /root/ \
     && mkdir -p /root/.vim/bundle \
     && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle
-RUN    echo | echo | vim +PluginInstall +qall &>/dev/null \
+RUN    echo | echo | vim +PluginInstall +qall  \
     && mkdir -p /root/.vim/snippets
 RUN    cd /root/.vim/bundle/YouCompleteMe \
     && git submodule update --init --recursive \

@@ -75,9 +75,9 @@ RUN    cd /root \
     && git clone https://github.com/lc7cl/MyVIM.git \
     && cp MyVIM/.vimrc /root/ \
     && mkdir -p /root/.vim/bundle \
-    && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle
-    && echo | echo | vim +PluginInstall +qall &>/dev/null
-    && mkdir -p /root/.vim/snippets
+    && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle \
+    && echo | echo | vim +PluginInstall +qall &>/dev/null \
+    && mkdir -p /root/.vim/snippets \
     && cd /root/.vim/bundle/YouCompleteMe \
     && git submodule update --init --recursive \
     && ./install.py --clang-completer \

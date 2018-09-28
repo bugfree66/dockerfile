@@ -79,11 +79,11 @@ RUN    cd /root \
     && echo | echo | vim +PluginInstall +qall &>/dev/null \
 #    && vim -E -u NONE --not-a-term -S /root/.vim/vundle.vim +PluginInstall +qall > /dev/null \
     && mkdir -p /root/.vim/snippets \
-    && cd /root/.vim/bundle/YouCompleteMe \
-    && git submodule update --init --recursive \
-    && ./install.py --clang-completer \
-    && ./install.py --go-completer \
-    && ./install.py --java-completer \
-    && ./install.py --js-completer 
+#    && cd /root/.vim/bundle/YouCompleteMe \
+#    && git submodule update --init --recursive \
+#    && ./install.py --clang-completer \
+#    && ./install.py --go-completer \
+#    && ./install.py --java-completer \
+#    && ./install.py --js-completer 
 
 CMD ["/bin/bash"]

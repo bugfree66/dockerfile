@@ -70,10 +70,6 @@ RUN    cd /root \
 COPY --from=0 /root/bind9/output/bin/dig /usr/local/bin/
 COPY --from=0 /root/bind9/output/bin/nslookup /usr/local/bin/
 
-#shadowsocks
-RUN    pip install shadowsocks \
-    && sed -i 's/CIPHER_CTX_cleanup/CIPHER_CTX_reset/g' /usr/lib/python3.7/site-packages/shadowsocks/crypto/openssl.py
-
 # config vim
 RUN    cd /root \
     && git clone https://github.com/lc7cl/MyVIM.git \

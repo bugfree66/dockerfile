@@ -73,7 +73,7 @@ COPY --from=0 /root/bind9/output/bin/nslookup /usr/local/bin/
 # config vim
 RUN    cd /root \
     && git clone https://github.com/lc7cl/MyVIM.git \
-    && cp MyVIM/.vimrc /root/ \
+    && cp MyVIM/.vimrc* /root/ \
     && mkdir -p /root/.vim/bundle \
     && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle \
     && echo | echo | vim +PluginInstall +qall &>/dev/null \

@@ -76,14 +76,15 @@ RUN    cd /root \
     && cp MyVIM/.vimrc* /root/ \
     && mkdir -p /root/.vim/bundle \
     && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/vundle \
-    && echo | echo | vim +PluginInstall +qall &>/dev/null \
+#    && echo | echo | vim +PluginInstall +qall &>/dev/null \
 #    && vim -E -u NONE --not-a-term -S /root/.vim/vundle.vim +PluginInstall +qall > /dev/null \
+    && vim -E -u NONE -S /root/.vimrc.bundles +PluginInstall +qall > /dev/null \
     && mkdir -p /root/.vim/snippets \
-#    && cd /root/.vim/bundle/YouCompleteMe \
-#    && git submodule update --init --recursive \
-#    && ./install.py --clang-completer \
-#    && ./install.py --go-completer \
-#    && ./install.py --java-completer \
-#    && ./install.py --js-completer 
+    && cd /root/.vim/bundle/YouCompleteMe \
+    && git submodule update --init --recursive \
+    && ./install.py --clang-completer \
+    && ./install.py --go-completer \
+    && ./install.py --java-completer \
+    && ./install.py --js-completer 
 
 CMD ["/bin/bash"]

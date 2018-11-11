@@ -79,7 +79,7 @@ RUN    cd /root \
 #    && echo | echo | vim +PluginInstall +qall &>/dev/null \
     && git clone https://github.com/jdevera/parallel-vundle-installer.git \
     && cd parallel-vundle-installer \
-    && ./pvi -j 32 -b "/root/.vim/bundles" \
+    && ./pvi -j 32 -b "/root/.vim/bundles" > /dev/null \
     && rm -rf parallel-vundle-installer 
 #    && vim -E --not-a-term -S /root/.vimrc.bundles +PluginInstall +qall > /dev/null \
 #    && vim -E -u NONE -S /root/.vimrc.bundles +PluginInstall +qall > /dev/null \

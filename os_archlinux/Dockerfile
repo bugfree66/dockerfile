@@ -1,5 +1,5 @@
 # phrase build dig
-FROM base/archlinux
+FROM archlinux/base
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make glibc gdb man-pages \
     && pacman --noconfirm -S git python

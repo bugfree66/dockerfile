@@ -7,7 +7,7 @@ RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \
     && git config --global http.postBuffer 524288000    
 RUN    cd /root \
-    && git clone https://gitlab.isc.org/isc-projects/bind9.git \
+    && git clone -b v9_12 https://gitlab.isc.org/isc-projects/bind9.git \
     && cd bind9 \
     && ./configure --prefix=/root/bind9/output \
     && make && make install   

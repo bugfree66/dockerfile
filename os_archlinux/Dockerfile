@@ -2,7 +2,7 @@
 FROM archlinux/base
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make glibc gdb man-pages \
-    && pacman --noconfirm -S git python python-pip awk
+    && pacman --noconfirm -S git python python-pip awk diffutils \
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \
     && git config --global http.postBuffer 524288000    

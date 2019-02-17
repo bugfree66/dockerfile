@@ -2,13 +2,14 @@
 FROM archlinux/base
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make glibc gdb man-pages \
-    && pacman --noconfirm -S git python
+    && pacman --noconfirm -S git python python-pip
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \
     && git config --global http.postBuffer 524288000    
 RUN    cd /root \
     && git clone https://gitlab.isc.org/isc-projects/bind9.git \
     && cd bind9 \
+    && pip install ply -y
     && ./configure --prefix=/root/bind9/output --with-python \
     && make && make install   
     

@@ -2,15 +2,15 @@
 FROM archlinux/base
 RUN    pacman --noconfirm -Syu \
     && pacman --noconfirm -S gcc make glibc gdb man-pages \
-    && pacman --noconfirm -S git python python-pip
+    && pacman --noconfirm -S git python python-pip awk
 RUN    git config --global user.email "lichang.eric@gmail.com" \
     && git config --global user.name "Eric Lee" \
     && git config --global http.postBuffer 524288000    
 RUN    cd /root \
     && git clone https://gitlab.isc.org/isc-projects/bind9.git \
     && cd bind9 \
-    && pip install ply -y
-    && ./configure --prefix=/root/bind9/output --with-python \
+    && pip install ply \
+    && ./configure --prefix=/root/bind9/output \
     && make && make install   
     
 # phrase build image

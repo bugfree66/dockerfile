@@ -14,7 +14,7 @@ RUN    cd /root \
     && make && make install   
     
 # phrase build image
-FROM base/archlinux
+FROM archlinux/base
 
 LABEL maintainer="Eric Lee <lichang.eric@gmail.com>"
 

@@ -52,13 +52,13 @@ RUN    echo "[global]" >> /root/.pip/pip.conf \
     && echo "index-url = http://mirrors.aliyun.com/pypi/simple" >> /root/.pip/pip.conf
 
 # hexo & blog
-RUN    npm install hexo-cli -g
-RUN    cd /root \
-    && git clone https://github.com/kitrap/kitrap.git \
-    && cd kitrap \
-    && npm install hexo --save \
-    && npm install hexo-deployer-git --save \
-    && npm cache clean --force
+#RUN    npm install hexo-cli -g
+#RUN    cd /root \
+#    && git clone https://github.com/kitrap/kitrap.git \
+#    && cd kitrap \
+#    && npm install hexo --save \
+#    && npm install hexo-deployer-git --save \
+#    && npm cache clean --force
     
 # bind9
 #RUN    cd /root \
